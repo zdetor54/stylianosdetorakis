@@ -135,6 +135,10 @@
       white-space: nowrap;
     }
 
+    .header-contact a {
+      color: inherit;
+    }
+
     .nav-bar {
       position: sticky;
       top: 0;
@@ -150,6 +154,53 @@
       flex-wrap: nowrap;
       justify-content: center;
       min-width: 0;
+    }
+
+    .menu-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      margin-left: auto;
+      border: 0;
+      border-radius: var(--radius);
+      background: transparent;
+      color: white;
+      cursor: pointer;
+    }
+
+    .nav-contact {
+      display: none;
+    }
+
+    .menu-toggle span,
+    .menu-toggle::before,
+    .menu-toggle::after {
+      content: "";
+      display: block;
+      width: 22px;
+      height: 2px;
+      border-radius: 999px;
+      background: currentColor;
+      transition: transform 160ms ease, opacity 160ms ease;
+    }
+
+    .menu-toggle {
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .menu-open .menu-toggle span {
+      opacity: 0;
+    }
+
+    .menu-open .menu-toggle::before {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .menu-open .menu-toggle::after {
+      transform: translateY(-7px) rotate(-45deg);
     }
 
     .nav-link {
@@ -337,17 +388,16 @@
 
     .photo-panel {
       position: relative;
-      min-height: 480px;
       overflow: hidden;
       border-radius: var(--radius);
       background: var(--clinical-blue);
       box-shadow: var(--shadow);
+      aspect-ratio: 4 / 3;
     }
 
     .photo-panel img {
       width: 100%;
       height: 100%;
-      min-height: 480px;
       object-fit: cover;
     }
 
@@ -465,10 +515,55 @@
       }
 
       .header-actions {
+        display: none;
         width: 100%;
-        justify-content: flex-start;
-        overflow-x: auto;
-        padding-bottom: 4px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 8px 0;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .menu-open .header-actions {
+        display: flex;
+      }
+
+      .nav-link {
+        display: block;
+        padding: 13px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.24);
+        font-size: 0.98rem;
+      }
+
+      .nav-item {
+        display: block;
+      }
+
+      .subnav {
+        position: static;
+        min-width: 0;
+        padding: 0 0 6px 14px;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+        opacity: 1;
+        pointer-events: auto;
+        transform: none;
+      }
+
+      .subnav-link {
+        color: white;
+        padding: 9px 0;
+        font-size: 0.9rem;
+      }
+
+      .subnav-link:hover {
+        color: white;
+        background: transparent;
       }
 
       .intro-grid,
@@ -476,9 +571,8 @@
         grid-template-columns: 1fr;
       }
 
-      .photo-panel,
-      .photo-panel img {
-        min-height: 420px;
+      .photo-panel {
+        aspect-ratio: 16 / 10;
       }
 
       .specialty-list li {
@@ -500,17 +594,100 @@
         align-items: flex-start;
       }
 
+      .header-inner {
+        gap: 18px;
+        padding: 22px 0 20px;
+      }
+
+      .brand {
+        gap: 14px;
+      }
+
+      .brand-mark {
+        width: 58px;
+        height: 58px;
+        flex-basis: 58px;
+      }
+
+      .brand-mark img {
+        width: 42px;
+        height: 42px;
+      }
+
+      .brand-title {
+        font-size: 1.06rem;
+        white-space: normal;
+      }
+
+      .brand-subtitle {
+        font-size: 0.68rem;
+        white-space: normal;
+      }
+
+      .header-contact {
+        display: none;
+      }
+
+      .nav-bar .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 48px;
+      }
+
+      .nav-contact {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-width: 0;
+        color: white;
+        font-size: 0.78rem;
+        font-weight: 800;
+        line-height: 1.2;
+      }
+
+      .nav-contact a,
+      .nav-contact span {
+        color: inherit;
+        white-space: nowrap;
+      }
+
+      .nav-contact span {
+        color: rgba(255, 255, 255, 0.78);
+      }
+
+      .menu-toggle {
+        width: 40px;
+        height: 40px;
+        margin-left: 12px;
+      }
+
       .header-actions {
-        gap: 8px 14px;
+        gap: 0;
+        margin-top: 6px;
+      }
+
+      .nav-link {
+        padding: 11px 0;
+      }
+
+      .intro {
+        padding: 36px 0 54px;
+      }
+
+      .intro-title {
+        font-size: clamp(1.65rem, 8vw, 1.9rem);
+      }
+
+      .intro-subtitle {
+        font-size: 0.86rem;
+        letter-spacing: 0.02em;
       }
 
       .specialty-list li {
-        flex-basis: 100%;
-      }
-
-      .photo-panel,
-      .photo-panel img {
-        min-height: 360px;
+        flex-basis: calc(50% - 6px);
+        min-height: 74px;
       }
 
       .photo-card {
@@ -522,6 +699,21 @@
 
       iframe {
         height: 380px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .nav-contact {
+        gap: 8px;
+        font-size: 0.72rem;
+      }
+
+      .nav-contact span {
+        display: none;
+      }
+
+      .specialty-list li {
+        flex-basis: 100%;
       }
     }
   </style>
@@ -542,16 +734,24 @@
         </a>
 
         <div class="header-contact" aria-label="Στοιχεία επικοινωνίας">
-          <span>Λεωφόρος Βασιλίσσης Σοφίας 54, Αθήνα</span>
+          <a href="https://www.google.com/maps/search/?api=1&query=%CE%92%CE%B1%CF%83%CE%B9%CE%BB%CE%AF%CF%83%CF%83%CE%B7%CF%82%20%CE%A3%CE%BF%CF%86%CE%AF%CE%B1%CF%82%2054%20%CE%91%CE%B8%CE%AE%CE%BD%CE%B1" target="_blank" rel="noreferrer">Λεωφόρος Βασιλίσσης Σοφίας 54, Αθήνα</a>
           <span>17.00 - 21.00</span>
-          <span>210 7222 022 / 6972 292 895</span>
+          <a href="tel:+302107222022">210 7222 022 / 6972 292 895</a>
         </div>
       </div>
     </div>
   </header>
   <div class="nav-bar">
     <div class="container">
-      <nav class="header-actions" aria-label="Βασική πλοήγηση">
+      <div class="nav-contact" aria-label="Στοιχεία επικοινωνίας">
+        <a href="https://www.google.com/maps/search/?api=1&query=%CE%92%CE%B1%CF%83%CE%B9%CE%BB%CE%AF%CF%83%CF%83%CE%B7%CF%82%20%CE%A3%CE%BF%CF%86%CE%AF%CE%B1%CF%82%2054%20%CE%91%CE%B8%CE%AE%CE%BD%CE%B1" target="_blank" rel="noreferrer">Βασ. Σοφίας 54</a>
+        <a href="tel:+302107222022">210 7222 022</a>
+        <span>17.00 - 21.00</span>
+      </div>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-menu" aria-label="Μενού">
+        <span></span>
+      </button>
+      <nav id="primary-menu" class="header-actions" aria-label="Βασική πλοήγηση">
         <a class="nav-link" href="/">Αρχική</a>
         <a class="nav-link" href="/maieutiki">Μαιευτική</a>
         <a class="nav-link" href="/gynaikologia">Γυναικολογία</a>
@@ -686,6 +886,15 @@
       </div>
     </div>
   </footer>
+  <script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navBar = document.querySelector(".nav-bar");
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navBar.classList.toggle("menu-open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+  </script>
 </body>
 
 </html>
