@@ -1,0 +1,159 @@
+:root {
+  --baby-blue: #2f8fbd;
+  --baby-blue-dark: #176f9a;
+  --soft-pink: #ffe6ee;
+  --soft-pink-deep: #f4b9cc;
+  --paper: #fbfbfa;
+  --ink: #16384a;
+}
+
+body {
+  color: var(--baby-blue);
+  background: var(--paper);
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.site-header {
+  padding: 0.75rem 0;
+  background: var(--paper);
+}
+
+.brand-mark {
+  width: 2.75rem;
+  height: 2.75rem;
+  display: grid;
+  place-items: center;
+}
+
+.brand-mark img {
+  width: 2.75rem;
+  height: 2.75rem;
+}
+
+.brand-name {
+  color: var(--baby-blue-dark);
+  font-size: 1rem;
+  letter-spacing: 0.06rem;
+  text-transform: uppercase;
+}
+
+.header-contact {
+  color: var(--baby-blue-dark);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.hero {
+  min-height: 30rem;
+  background: url("../img/practice.jpg") center / cover no-repeat;
+}
+
+.hero-card {
+  padding: clamp(2.5rem, 5vw, 4rem);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.58), rgba(255, 255, 255, 0.28));
+  border: 1px solid rgba(255, 255, 255, 0.68);
+  border-radius: 1.5rem;
+  box-shadow: 0 1.5rem 4rem rgba(47, 143, 189, 0.16);
+  backdrop-filter: blur(1rem) saturate(150%);
+  -webkit-backdrop-filter: blur(1rem) saturate(150%);
+}
+
+.hero-card h1 {
+  color: var(--baby-blue-dark);
+  font-size: clamp(2.25rem, 4vw, 3.75rem);
+  line-height: 1;
+}
+
+.hero-card p {
+  margin: 1.25rem 0 0;
+  color: var(--ink);
+  font-size: clamp(1.1rem, 2vw, 1.45rem);
+  line-height: 1.55;
+}
+
+.statement {
+  padding: clamp(1.75rem, 4vw, 3rem) 0;
+  color: white;
+  background: linear-gradient(135deg, var(--baby-blue), var(--soft-pink-deep));
+}
+
+.statement p {
+  max-width: 58rem;
+  margin: 0 auto;
+  font-size: clamp(1.35rem, 2.4vw, 2rem);
+  line-height: 1.7;
+}
+
+.contact-section {
+  padding: clamp(3rem, 7vw, 5rem) 0;
+  background: linear-gradient(180deg, #fff, var(--soft-pink));
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.68);
+  border-radius: 1.5rem;
+  box-shadow: 0 1.5rem 4rem rgba(47, 143, 189, 0.14);
+  backdrop-filter: blur(1rem) saturate(150%);
+  -webkit-backdrop-filter: blur(1rem) saturate(150%);
+}
+
+.contact-card {
+  display: grid;
+  gap: 2rem;
+  align-content: center;
+  padding: clamp(2rem, 4vw, 3.5rem);
+}
+
+.contact-card h2 {
+  color: var(--baby-blue-dark);
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
+}
+
+.contact-card p {
+  color: var(--ink);
+  font-size: 1.05rem;
+}
+
+iframe {
+  display: block;
+  width: 100%;
+  min-height: 28rem;
+  border: 0;
+}
+
+.site-footer {
+  padding: 1.5rem;
+  color: var(--baby-blue);
+  background: var(--paper);
+}
+
+@media (max-width: 991.98px) {
+  .hero {
+    min-height: 30rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .site-header .d-flex {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .header-contact {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero .row {
+    justify-content: center;
+  }
+
+  .hero-card {
+    text-align: center;
+  }
+
+  .statement {
+    text-align: center;
+  }
+}
