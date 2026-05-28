@@ -30,19 +30,23 @@
     </button>
     <nav id="primary-menu" class="header-actions" aria-label="Βασική πλοήγηση">
       <a class="nav-link" href="/">Αρχική</a>
-      <a class="nav-link" href="/maieutiki">Μαιευτική</a>
-      <a class="nav-link" href="/gynaikologia">Γυναικολογία</a>
-      <a class="nav-link" href="/ypogonimotita">Υπογονιμότητα</a>
+      <a class="nav-link" href="/Μαιευτική">Μαιευτική</a>
       <div class="nav-item">
-        <a class="nav-link" href="/endoskopisi">Ενδοσκόπηση</a>
-        <div class="subnav" aria-label="Υπομενού Ενδοσκόπησης">
-          <a class="subnav-link" href="/endoskopisi/laparoskopisi">Λαπαροσκόπηση</a>
-          <a class="subnav-link" href="/endoskopisi/ysteroskopisi">Υστεροσκόπηση</a>
+        <a class="nav-link" href="/Γυναικολογία">Γυναικολογία</a>
+        <div class="subnav" aria-label="Υπομενού Γυναικολογίας">
+          <a class="subnav-link" href="/Γυναικολογία/Προληπτικός έλεγχος">Προληπτικός έλεγχος</a>
+          <a class="subnav-link" href="/Γυναικολογία/Γυναικολογική ογκολογία">Γυναικολογική ογκολογία</a>
+          <a class="subnav-link" href="/Γυναικολογία/Εμμηνόπαυση">Εμμηνόπαυση</a>
+          <a class="subnav-link" href="/Γυναικολογία/Διαταραχές περιόδου">Διαταραχές περιόδου</a>
+          <a class="subnav-link" href="/Γυναικολογία/Υπογονιμότητα">Υπογονιμότητα</a>
+          <a class="subnav-link" href="/Γυναικολογία/Ινομυώματα">Ινομυώματα</a>
+          <a class="subnav-link" href="/Γυναικολογία/Αντισύλληψη">Αντισύλληψη</a>
+          <a class="subnav-link" href="/Γυναικολογία/Ενδομητρίωση">Ενδομητρίωση</a>
         </div>
       </div>
-      <a class="nav-link" href="/ogologia">Ογκολογία</a>
-      <a class="nav-link" href="/mastos">Μαστός</a>
-      <a class="nav-link" href="/photo-gallery">Ιατρείο</a>
+      <a class="nav-link" href="/Λαπαροσκόπηση">Λαπαροσκόπηση</a>
+      <a class="nav-link" href="/Υστεροσκόπηση">Υστεροσκόπηση</a>
+      <a class="nav-link" href="/Ρομποτική χειρουργική">Ρομποτική χειρουργική</a>
     </nav>
   </div>
 </div>
@@ -51,6 +55,9 @@
   (function () {
     const menuToggle = document.querySelector(".menu-toggle");
     const navBar = document.querySelector(".nav-bar");
+    if (!menuToggle || !navBar || menuToggle.dataset.menuInitialized) return;
+    menuToggle.dataset.menuInitialized = "true";
+
     menuToggle.addEventListener("click", () => {
       const isOpen = navBar.classList.toggle("menu-open");
       menuToggle.setAttribute("aria-expanded", String(isOpen));

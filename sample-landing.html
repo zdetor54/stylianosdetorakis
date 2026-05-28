@@ -11,7 +11,7 @@
 </head>
 
 <body>
-  <div id="header-placeholder"></div>ß
+  <div id="header-placeholder"></div>
 
   <main id="top">
     <section class="intro" aria-labelledby="intro-title">
@@ -129,7 +129,20 @@
       const html = await res.text();
       el.outerHTML = html;
     }
-    loadPartial("header-placeholder", "partials/header.html");
+
+    function initHeaderMenu() {
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navBar = document.querySelector(".nav-bar");
+      if (!menuToggle || !navBar || menuToggle.dataset.menuInitialized) return;
+      menuToggle.dataset.menuInitialized = "true";
+
+      menuToggle.addEventListener("click", () => {
+        const isOpen = navBar.classList.toggle("menu-open");
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+      });
+    }
+
+    loadPartial("header-placeholder", "partials/header.html").then(initHeaderMenu);
     loadPartial("footer-placeholder", "partials/footer.html");
   </script>
 </body>
